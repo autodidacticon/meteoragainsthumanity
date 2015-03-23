@@ -1,0 +1,16 @@
+<template name='scores'>
+  <div class='scores'>
+    <ul class='list-group'>
+      <li class='list-group-item disabled'>
+        <span class="badge">Score</span>
+        Current Players
+      </li>
+    {{#each keyVals scores}}
+      <li class='list-group-item'>
+        <span class="badge">{{value}}</span>
+        {{key}}
+      </li>
+    {{/each}}
+    </ul>
+  </div>
+</template>

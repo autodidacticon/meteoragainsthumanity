@@ -1,5 +1,5 @@
-Meteor.publish 'questions', (options) ->
-  Questions.find {}, options
-Meteor.publish 'answers', (options) ->
-  Answers.find {}, options
+Meteor.publish 'answers', (query = {}, options) ->
+  Answers.find query, options
 
+Meteor.publish 'games', (query = {}, options) ->
+  Games.find query, options

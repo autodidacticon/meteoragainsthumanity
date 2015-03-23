@@ -1,0 +1,30 @@
+<template name='game_preview'>
+  <div class='game_preview'>
+    <div class='question-content panel-group' id='accordion{{id}}' role='tablist' aria-multiselectable='true'>
+      <div class='panel panel-default'>
+        <div class='panel-heading' role='tab' id='headingOne{{id}}'>
+          <h4 class='panel-title'>
+            <a data-toggle='collapse' data-parent='#accordion{{id}}' href='#collapseOne{{id}}' aria-expanded='true' aria-controls='collapseOne{{id}}'>
+              {{name}}
+            </a>
+            {{#if currentUser}}
+            <div class='btn-group pull-right'>
+              <button class='join btn btn-default btn-small'>Join</button>
+            </div>
+            <div class='clearfix'></div>
+            {{/if}}
+          </h4>
+        </div>
+        <div id='collapseOne{{id}}' class='panel-collapse collapse in' role='tabpanel' aria-labelledby='headingOne{{id}}'>
+          <div class='panel-body'>
+            <ul class='list-group'>
+              {{#with scores = this.scores}}
+                {{> scores }}
+              {{/with}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

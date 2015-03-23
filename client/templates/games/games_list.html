@@ -1,0 +1,15 @@
+<template name='gamesList'>
+  <h5 class='text-center'>Current Games</h5>
+  <div class='games'>
+    {{#unless currentUser}}
+    <p class='text-center'>Sign in to play!</p>
+    {{/unless}}
+    {{#each games}}
+      {{> game_preview}}
+    {{/each}}
+
+    {{#if currentUser}}
+    <a class='link' id='newgame'>New Game</a>
+    {{/if}}
+  </div>
+</template>

@@ -1,0 +1,12 @@
+<template name='game'>
+  {{#with scores = game.scores}}
+    {{> scores}}
+  {{/with}}
+  {{#if answered}}
+    {{> vote}}
+  {{else}}
+    {{#with game.question}}
+      {{> game_item }}
+    {{/with}}
+  {{/if}}
+</template>
