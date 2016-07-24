@@ -21,6 +21,7 @@ Template.vote.helpers
 Template.vote.events
   'click #vote': (e) ->
 #call server side method to vote on answer, mutate game state
+    return if $('#vote').hasClass('disabled')
     username = $('input:checked').val()
     gId = Template.parentData().game._id
     Meteor.call 'vote', username, gId, (e,r) ->

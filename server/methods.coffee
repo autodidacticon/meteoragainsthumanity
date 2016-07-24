@@ -43,11 +43,11 @@ Meteor.methods
     #return new game id to caller
     _id = Games.insert gameObj
 
-  play: (gId, aId) ->
+  play: (gId, aId, text = "") ->
     #called when user plays a card 
     user = Meteor.user()
     answers = {}
-    answer = Answers.findOne _id: aId
+    answer = (Answers.findOne _id: aId) || {'_id':aId, 'text': text}
     answer.username = user.username
     answers['answers.' + user.username] = answer
     Games.update

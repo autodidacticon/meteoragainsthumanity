@@ -4,10 +4,14 @@ Template.game_item.events
     Session.set 'aRandom', Math.random()
     $('#play').addClass('disabled')
   'click #play': (e) ->
+    return if $('#play').hasClass('disabled')
 #call server side method to play card / mutate game state
     gId = Template.parentData().game._id
     aId = $('input:checked').val()
-    Meteor.call 'play', gId, aId, (e,r) ->
+    text = ''
+    if aId == '0'
+      text = $('input:checked').next().val()
+    Meteor.call 'play', gId, aId, text, (e,r) ->
       if e
         return alert e.reason
   'click input': (e) ->
